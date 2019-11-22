@@ -1,0 +1,26 @@
+<div class="card" style="width:100%;">
+  <div class="card-header text-center" style="font-family: 'Times New Roman'; font-size: 50px">
+    LIST PRODUCTS
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col" class="text-center">STT</th>
+      <th scope="col" class="text-center">NAME</th>
+      <th scope="col" class="text-center">PRICE</th>
+      <th scope="col" class="text-center">ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of listProduct;let i = index">
+      <th scope="row" class="text-center">{{i + 1}}</th>
+      <td class="text-center">{{product.name}}</td>
+      <td class="text-center">{{product.price}}</td>
+      <td class="text-center">
+        <button class="btn btn-success m-lg-2" [routerLink]="['/products',i,'edit']">EDIT</button>
+        <button class="btn btn-danger" (click)="delete(i)">DELETE</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

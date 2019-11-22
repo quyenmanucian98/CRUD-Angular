@@ -1,0 +1,27 @@
+<form [formGroup]="addProductForm" (ngSubmit)="submit()">
+  <div class="card-header text-center" style="font-family: 'Times New Roman'; font-size: 50px">
+    PRODUCTS NEW
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">NAME</label>
+    <input type="text" class="form-control" formControlName="name" id="exampleInputEmail1" aria-describedby="emailHelp"
+           placeholder="Enter Name">
+    <div *ngIf="name.invalid && name.touched">
+      <div *ngIf="name.errors.required">
+        <p class="text-danger">Nhập cho nó đủ vào</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>PRICE</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="price"
+           placeholder="Enter Price">
+    <div *ngIf="price.invalid && price.touched">
+      <div *ngIf="price.errors.required">
+        <p class="text-danger">Nhập cho nó đủ vào</p>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!addProductForm.valid">ADD</button>
+  <button type="submit" class="btn btn-dark m-lg-2" routerLink="/products">CANCEL</button>
+</form>
